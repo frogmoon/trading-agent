@@ -1,0 +1,107 @@
+[
+  {
+    "ticker": "AGIX",
+    "name": "KraneShares AI ETF",
+    "market": "ETF",
+    "sector": "AI",
+    "score": 100
+  },
+  {
+    "ticker": "277410",
+    "name": "277410",
+    "market": "KRX",
+    "sector": "광통신",
+    "score": 90
+  },
+  {
+    "ticker": "039030",
+    "name": "039030",
+    "market": "KRX",
+    "sector": "반도체",
+    "score": 83
+  },
+  {
+    "ticker": "039560",
+    "name": "039560",
+    "market": "KRX",
+    "sector": "광통신",
+    "score": 83
+  },
+  {
+    "ticker": "105560",
+    "name": "105560",
+    "market": "KRX",
+    "sector": "밸류업_금융",
+    "score": 75
+  },
+  {
+    "ticker": "039490",
+    "name": "039490",
+    "market": "KRX",
+    "sector": "밸류업_금융",
+    "score": 75
+  },
+  {
+    "ticker": "109080",
+    "name": "109080",
+    "market": "KRX",
+    "sector": "광통신",
+    "score": 75
+  },
+  {
+    "ticker": "230480",
+    "name": "230480",
+    "market": "KRX",
+    "sector": "광통신",
+    "score": 75
+  },
+  {
+    "ticker": "064760",
+    "name": "064760",
+    "market": "KRX",
+    "sector": "광통신",
+    "score": 75
+  },
+  {
+    "ticker": "AMAT",
+    "name": "AMAT",
+    "market": "US",
+    "sector": "AI_인프라",
+    "score": 75
+  },
+  {
+    "ticker": "CDNS",
+    "name": "CDNS",
+    "market": "US",
+    "sector": "AI_인프라",
+    "score": 75
+  },
+  {
+    "ticker": "SLB",
+    "name": "SLB",
+    "market": "US",
+    "sector": "에너지_헤지",
+    "score": 75
+  },
+  {
+    "ticker": "ORCL",
+    "name": "ORCL",
+    "market": "US",
+    "sector": "AI_빅테크",
+    "score": 65
+  },
+  {
+    "ticker": "SNPS",
+    "name": "SNPS",
+    "market": "US",
+    "sector": "AI_인프라",
+    "score": 65
+  },
+  {
+    "ticker": "ARKQ",
+    "name": "ARKQ",
+    "market": "ETF",
+    "sector": "AI",
+    "score": 75
+  }
+]
