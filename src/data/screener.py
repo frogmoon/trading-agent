@@ -14,6 +14,21 @@ FIXED_WATCHLIST = [
     {"ticker": "AGIX", "name": "KraneShares AI ETF", "market": "ETF", "sector": "AI", "score": 100}
 ]
 
+ETF_NAMES = {
+    'AGIX': 'KraneShares AI & Tech ETF',
+    'BOTZ': 'Global X Robotics & AI ETF',
+    'AIQ':  'Global X AI & Tech ETF',
+    'ARKQ': 'ARK Autonomous Tech ETF',
+    'QQQ':  'Invesco QQQ Trust',
+    'XLK':  'Technology Select SPDR ETF',
+    'SMH':  'VanEck Semiconductor ETF',
+    'SOXX': 'iShares Semiconductor ETF',
+    'FIVG': 'Defiance 5G Next Gen ETF',
+    'WCLD': 'WisdomTree Cloud Computing ETF',
+    'XLE':  'Energy Select SPDR ETF',
+    'VDE':  'Vanguard Energy ETF',
+}
+
 def load_universe():
     return json.loads(UNIVERSE_PATH.read_text())
 
@@ -83,9 +98,22 @@ def run_screening(market):
     results.sort(key=lambda x: x["score"], reverse=True)
     return results[:slots]
 
+def get_krx_name_map() -> dict:
+    """KRX 전체 종목명 매핑 (FinanceDataReader)"""
+    try:
+        import FinanceDataReader as fdr
+        df = fdr.StockListing('KRX')[['Code', 'Name']]
+        return df.set_index('Code')['Name'].to_dict()
+    except Exception as e:
+        print(f"  ⚠️ KRX 종목명 조회 실패: {e}")
+        return {}
+
 def update_watchlist():
     from alerts.telegram import send_message
     from data.portfolio_manager import load_portfolio
+
+    # KRX 종목명 매핑 미리 로드
+    krx_names = get_krx_name_map()
 
     portfolio_tickers = {h["ticker"].replace(".KS", "") for h in load_portfolio()}
     new_watchlist = list(FIXED_WATCHLIST)
@@ -96,9 +124,20 @@ def update_watchlist():
         top = run_screening(market)
         for item in top:
             if item["ticker"] not in {w["ticker"] for w in new_watchlist}:
+                # ← 종목명 자동 반영
+                if market == "KRX":
+                    name = krx_names.get(item["ticker"], item["ticker"])
+                elif market == "ETF":
+                    name = ETF_NAMES.get(item["ticker"], item["ticker"])
+                else:  # US
+                    try:
+                        info = yf.Ticker(item["ticker"]).info
+                        name = info.get("shortName") or info.get("longName") or item["ticker"]
+                    except:
+                        name = item["ticker"]
                 new_watchlist.append({
                     "ticker": item["ticker"],
-                    "name":   item["ticker"],
+                    "name":   name,
                     "market": market,
                     "sector": item.get("sector", ""),
                     "score":  item["score"],
@@ -109,8 +148,14 @@ def update_watchlist():
     existing = {w["ticker"] for w in new_watchlist}
     for pt in portfolio_tickers:
         if pt not in existing:
-            new_watchlist.append({"ticker": pt, "name": pt, "market": "KRX",
-                                  "sector": "보유종목", "score": 100})
+            name = krx_names.get(pt, pt)
+            new_watchlist.append({
+                "ticker": pt,
+                "name":   name,
+                "market": "KRX",
+                "sector": "보유종목",
+                "score":  100,
+            })
 
     new_watchlist = new_watchlist[:MAX_WATCHLIST]
     save_watchlist(new_watchlist)

@@ -1,121 +1,142 @@
-  [
-    {
-      "ticker": "006800.KS",
-      "name": "미래에셋증권",
-      "market": "KRX",
-      "qty": 1,
-      "avg_price": 33250
-    },
-    {
-      "ticker": "009150.KS",
-      "name": "삼성전기",
-      "market": "KRX",
-      "qty": 30,
-      "avg_price": 194466
-    },
-    {
-      "ticker": "017670.KS",
-      "name": "SK텔레콤",
-      "market": "KRX",
-      "qty": 1,
-      "avg_price": 52300
-    },
-    {
-      "ticker": "267250.KS",
-      "name": "HD현대",
-      "market": "KRX",
-      "qty": 20,
-      "avg_price": 153710
-    },
-    {
-      "ticker": "00680K.KS",
-      "name": "미래에셋증권2우B",
-      "market": "KRX",
-      "qty": 90,
-      "avg_price": 18638
-    },
-    {
-      "ticker": "396500.KS",
-      "name": "TIGER 반도체TOP10",
-      "market": "ETF",
-      "qty": 160,
-      "avg_price": 30859
-    },
-    {
-      "ticker": "466920.KS",
-      "name": "SOL 조선TOP3플러스",
-      "market": "ETF",
-      "qty": 30,
-      "avg_price": 32633
-    },
-    {
-      "ticker": "SMR",
-      "name": "뉴스케일 파ㅓ",
-      "market": "US",
-      "qty": 30,
-      "avg_price": 27.8133
-    },
-    {
-      "ticker": "TSLL",
-      "name": "DIREXION TSLA DAILY 2X",
-      "market": "US",
-      "qty": 40,
-      "avg_price": 29.7350
-    },
-    {
-      "ticker": "JEPI",
-      "name": "JP MORGAN EQUITY PREMIUM INCOME",
-      "market": "US",
-      "qty": 50,
-      "avg_price": 54.1982
-    },
-    {
-      "ticker": "SCHD",
-      "name": "SCHWAB US DIVIDEND EQUITY",
-      "market": "US",
-      "qty": 200,
-      "avg_price": 24.7238
-    },
-    {
-      "ticker": "BITX",
-      "name": "VOLATILITY SHARES BITCOIN STRATEGY 2X",
-      "market": "US",
-      "qty": 10,
-      "avg_price": 49.4700
-    },
-    {
-      "ticker": "SATL",
-      "name": "세틀로직 (Spire Global)",
-      "market": "US",
-      "qty": 400,
-      "avg_price": 3.3700
-    },
-    {
-      "ticker": "KTOS",
-      "name": "크라토스 디펜스 앤드 시큐리티 솔루션스",
-      "market": "US",
-      "qty": 2,
-      "avg_price": 130.0000
-    },
-    {
-      "ticker": "TSLA",
-      "name": "테슬라",
-      "market": "US",
-      "qty": 60,
-      "avg_price": 371.1698
-    },
-    {
-      "ticker": "ONDS",
-      "name": "온다스",
-      "market": "US",
-      "qty": 200,
-      "avg_price": 11.375
-    },
-    {
-      "ticker": "096770.KS",
-      "name": "SK이노베이션",
-      "market": "KRX",
-      "qty": 3,
-      "avg_price": 122500
-    }
-  ]
+[
+  {
+    "ticker": "006800.KS",
+    "name": "미래에셋증권",
+    "market": "KRX",
+    "qty": 11,
+    "avg_price": 66750.0
+  },
+  {
+    "ticker": "009150.KS",
+    "name": "삼성전기",
+    "market": "KRX",
+    "qty": 30,
+    "avg_price": 194466
+  },
+  {
+    "ticker": "017670.KS",
+    "name": "SK텔레콤",
+    "market": "KRX",
+    "qty": 1,
+    "avg_price": 52300
+  },
+  {
+    "ticker": "267250.KS",
+    "name": "HD현대",
+    "market": "KRX",
+    "qty": 20,
+    "avg_price": 153710
+  },
+  {
+    "ticker": "00680K.KS",
+    "name": "미래에셋증권2우B",
+    "market": "KRX",
+    "qty": 90,
+    "avg_price": 18638
+  },
+  {
+    "ticker": "396500.KS",
+    "name": "TIGER 반도체TOP10",
+    "market": "ETF",
+    "qty": 160,
+    "avg_price": 30859
+  },
+  {
+    "ticker": "466920.KS",
+    "name": "SOL 조선TOP3플러스",
+    "market": "ETF",
+    "qty": 30,
+    "avg_price": 32633
+  },
+  {
+    "ticker": "SMR",
+    "name": "뉴스케일 파ㅓ",
+    "market": "US",
+    "qty": 30,
+    "avg_price": 27.8133
+  },
+  {
+    "ticker": "TSLL",
+    "name": "DIREXION TSLA DAILY 2X",
+    "market": "US",
+    "qty": 40,
+    "avg_price": 29.735
+  },
+  {
+    "ticker": "JEPI",
+    "name": "JP MORGAN EQUITY PREMIUM INCOME",
+    "market": "US",
+    "qty": 50,
+    "avg_price": 54.1982
+  },
+  {
+    "ticker": "SCHD",
+    "name": "SCHWAB US DIVIDEND EQUITY",
+    "market": "US",
+    "qty": 200,
+    "avg_price": 24.7238
+  },
+  {
+    "ticker": "BITX",
+    "name": "VOLATILITY SHARES BITCOIN STRATEGY 2X",
+    "market": "US",
+    "qty": 10,
+    "avg_price": 49.47
+  },
+  {
+    "ticker": "SATL",
+    "name": "세틀로직 (Spire Global)",
+    "market": "US",
+    "qty": 400,
+    "avg_price": 3.37
+  },
+  {
+    "ticker": "KTOS",
+    "name": "크라토스 디펜스 앤드 시큐리티 솔루션스",
+    "market": "US",
+    "qty": 2,
+    "avg_price": 130.0
+  },
+  {
+    "ticker": "TSLA",
+    "name": "테슬라",
+    "market": "US",
+    "qty": 60,
+    "avg_price": 371.1698
+  },
+  {
+    "ticker": "ONDS",
+    "name": "온다스",
+    "market": "US",
+    "qty": 200,
+    "avg_price": 11.375
+  },
+  {
+    "ticker": "096770.KS",
+    "name": "SK이노베이션",
+    "market": "KRX",
+    "qty": 3,
+    "avg_price": 122500
+  },
+  {
+    "ticker": "277410.KS",
+    "name": "277410",
+    "market": "KRX",
+    "qty": 300,
+    "avg_price": 1169
+  },
+  {
+    "ticker": "189300.KS",
+    "name": "189300",
+    "market": "KRX",
+    "qty": 3,
+    "avg_price": 137000
+  },
+  {
+    "ticker": "105560.KS",
+    "name": "105560",
+    "market": "KRX",
+    "qty": 6,
+    "avg_price": 161700
+  }
+]

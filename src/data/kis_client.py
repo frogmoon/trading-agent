@@ -75,6 +75,27 @@ def get_balance() -> list:
             })
     return holdings
 
+def get_deposit() -> int:
+    """주문가능 예수금 조회"""
+    res = requests.get(
+        f"{BASE_URL}/uapi/domestic-stock/v1/trading/inquire-psbl-order",
+        headers=get_headers("TTTC8908R"),
+        params={
+            "CANO":                  ACCOUNT,
+            "ACNT_PRDT_CD":          ACCOUNT_SUFFIX,
+            "PDNO":                  "005930",   # 아무 종목코드나 (형식상 필요)
+            "ORD_UNPR":              "0",
+            "ORD_DVSN":              "01",       # 시장가
+            "CMA_EVLU_AMT_ICLD_YN": "N",
+            "OVRS_ICLD_YN":         "N",
+        }
+    )
+    data = res.json()
+    try:
+        return int(data["output"]["ord_psbl_cash"])
+    except:
+        return 0
+        
 def place_order(ticker: str, qty: int, price: int = 0, order_type: str = "buy") -> dict:
     """주문 실행 (price=0이면 시장가)"""
     tr_id  = "TTTC0802U" if order_type == "buy" else "TTTC0801U"

@@ -3,7 +3,7 @@ import json
 import time
 import requests
 from dotenv import load_dotenv
-from data.kis_client import place_order, get_balance
+from data.kis_client import place_order, get_balance, get_deposit
 from agents.strategy import generate_signal, get_watchlist, MAX_DAILY_ORDERS
 from alerts.telegram import send_message
 from data.portfolio_manager import add_holding, remove_holding
@@ -96,11 +96,14 @@ def ask_approval(signal: dict) -> dict | None:
 def run_trading_cycle():
     global _daily_order_count
     if _daily_order_count >= MAX_DAILY_ORDERS:
-        print(f"⚠️ 일일 최대 거래 횟수 ({MAX_DAILY_ORDERS}회) 도달")
+        print(f"⚠️ 일일 최대 거래 횟수 도달")
         return
 
+    # 예수금 먼저 조회
+    deposit  = get_deposit()
     holdings = {h["ticker"]: h for h in get_balance()}
     watchlist = get_watchlist()
+
     all_tickers = list(holdings.values()) + [
         w for w in watchlist if w["ticker"] not in holdings
     ]
@@ -109,14 +112,23 @@ def run_trading_cycle():
     for item in all_tickers:
         ticker  = item["ticker"]
         name    = item.get("name", ticker)
+        market  = item.get("market", "KRX")
         holding = holdings.get(ticker)
-        signal  = generate_signal(ticker, name, holding)
+
+        signal = generate_signal(
+            ticker  = ticker,
+            name    = name,
+            holding = holding,
+            market  = market,
+            deposit = deposit,      # ← 예수금 전달
+        )
         if signal["action"] != "hold":
             signals.append(signal)
-        print(f"  {name}: {signal['action']} (신뢰도 {signal.get('confidence', '-')})")
+        print(f"  {signal['name']}({ticker}): "
+              f"{signal['action']} (신뢰도 {signal.get('confidence', '-')})")
 
     if not signals:
-        send_message("🔍 분석 완료 — 매매 신호 없음")
+        send_message(f"🔍 분석 완료 — 매매 신호 없음\n💰 예수금: {deposit:,}원")
         return
 
     for signal in signals:
